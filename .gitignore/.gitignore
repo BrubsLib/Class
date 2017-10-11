@@ -1,0 +1,90 @@
+#include <stdio.h>
+//código aula 11/10
+void menu(){
+    printf("\n");
+    printf("1-somar\n");
+    printf("2-subtrair\n");
+    printf("3-multiplicar\n");
+    printf("4-dividir\n");
+    printf("5-ler x\n");
+    printf("6-ler y\n");
+    printf("7-sair\n");
+    printf("\n");
+    printf("Digite sua opcao: ");
+}
+void soma(int x, int y){
+    int s=0;
+    s = x + y;
+    printf("%d + %d = %d",x,y,s);
+}
+void subtra(int x, int y){
+    int s=0;
+    s = x - y;
+    printf("%d - %d = %d",x,y,s);
+}
+void multipl(int x, int y){
+    int s=0;
+    s = x * y;
+    printf("%d x %d = %d",x,y,s);
+}
+void divid(int x, int y){
+    int s=0,r;
+    s = x / y;
+    r=x%y;
+    printf("%d / %d = %d\n",x,y,s);
+    printf("resto = %d",r);
+}
+int main()
+{
+    int op=0,x=0,y=0;
+    while(op!=7){
+        menu();
+        scanf("%d",&op);
+        switch (op)
+        {
+        case 1:
+            if(x==0 || y==0){
+              printf("x e/ou y vazios; preencha e tente novamente.\n");
+            }else{
+            soma(x,y);
+            }
+            break;
+
+        case 2:
+            if(x==0 || y==0){
+              printf("x e/ou y vazios; preencha e tente novamente.\n");
+            }else{
+            subtra(x,y);
+            }
+            break;
+
+        case 3:
+            if(x==0 || y==0){
+              printf("x e/ou y vazios; preencha e tente novamente.\n");
+            }else{
+            multipl(x,y);
+            }
+            break;
+        case 4:
+            if(x==0 || y==0){
+              printf("x e/ou y vazios; preencha e tente novamente.\n");
+            }else{
+            divid(x,y);
+            }
+            break;
+        case 5:
+            printf("digite x: ");
+            scanf("%d",&x);
+            break;
+        case 6:
+            printf("digite y: ");
+            scanf("%d",&y);
+            break;
+        default:
+        printf("opcao invalida,tente novamente\n");
+        }
+        }
+
+        printf("\n");
+        return 0;
+        }
