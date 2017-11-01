@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void menu(){
+    printf("\n");
+    printf("==PROGRAMA PARA MANIPULACAO DE MATRIZES==\n");
+    printf("1-Definir o tamanho da matriz A\n");
+    printf("2-Definir o tamanho da matriz B\n");
+    printf("3-Preencher a matriz A com valores aleatorios\n");
+    printf("4-Preencher a matriz B com valores aleatorios\n");
+    printf("5-Atribuir valor para um elemento da matriz A\n");
+    printf("6-Atribuir valor para um elemento da matriz B\n");
+    printf("7-Calcular A+B\n");
+    printf("8-Calcular A-B\n");
+    printf("9-Calcular A*B\n");
+    printf("10-Imprimir matriz A\n");
+    printf("11-Imprimir matriz B\n");
+    printf("12-Imprimir matriz C\n");
+    printf("13-Ler a matriz A de um arquivo\n");
+    printf("14-Ler a matriz B de um arquivo\n");
+    printf("15-Escrever a matriz C em um arquivo\n");
+    printf("16-Sair\n");
+    printf("\n");
+    printf("Digite sua opção: ");
+}
+void op3(int ma[][], int nca, int nla){
+    //Preencher a matriz A com valores aleatórios
+    
+    int i,j;
+    for(i=0; i<nca; i++){
+        for(j=0; j<nla; j++){
+          ma[i][j] = rand()%101;
+        }
+      }
+}
+void op4(int mb[][], int ncb, int nlb){
+    //Preencher a matriz B com valores aleatórios
+    
+    int i,j;
+    for(i=0; i<ncb; i++){
+        for(j=0; j<nlb; j++){
+          mb[i][j] = rand()%101;
+        }
+      }
+}
+int main(void)
+{
+    int op=0;
+    int nla,nca,nlb,ncb;
+    int mc[20][20]={0};
+        while(op!=7){
+            menu();
+            scanf("%d",&op);
+            switch (op)
+            {
+            case 1:
+                printf("==Tamanho da matriz A==\n");
+                printf("Numero de linhas: ");
+                scanf("%d",&nla);
+                printf("Numero de colunas: ");
+                scanf("%d",&nca);
+                break;
+    
+            case 2:
+                printf("==Tamanho da matriz B==\n");
+                printf("Numero de linhas: ");
+                scanf("%d",&nlb);
+                printf("Numero de colunas: ");
+                scanf("%d",&ncb);
+                break;
+    
+            case 3:
+                
+                break;
+            case 4:
+                
+                break;
+            case 5:
+                
+                break;
+            case 6:
+            
+                break;
+            case 7:
+            
+                break;
+            case 8:
+            
+                break;
+            case 9:
+            
+                break;
+            case 10:
+            
+                break;
+            case 11:
+            
+                break;
+            case 12:
+            
+                break;
+            case 13:
+            
+                break;
+            case 14:
+            
+                break;
+            case 15:
+            
+                break;
+                
+            default:
+            printf("opcao invalida,tente novamente\n");
+            }
+            }
+    
+    return 0;
+}
