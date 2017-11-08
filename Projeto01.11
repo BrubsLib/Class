@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-
+#include <time.h>
 void menu(){
     printf("\n");
     printf("==PROGRAMA PARA MANIPULACAO DE MATRIZES==\n");
@@ -22,98 +22,159 @@ void menu(){
     printf("15-Escrever a matriz C em um arquivo\n");
     printf("16-Sair\n");
     printf("\n");
-    printf("Digite sua opção: ");
+    printf("Digite sua opcao: ");
 }
-void op3(int ma[][], int nca, int nla){
+void op3(int ma[50][50], int nla, int nca){
     //Preencher a matriz A com valores aleatórios
-    
+
     int i,j;
-    for(i=0; i<nca; i++){
-        for(j=0; j<nla; j++){
-          ma[i][j] = rand()%101;
+    printf("\n");
+    srand(time(NULL));
+    for(i=0; i<nla; i++){
+        for(j=0; j<nca; j++){
+            ma[i][j] = rand()%100;
         }
-      }
+    }
+    printf("\n");
 }
-void op4(int mb[][], int ncb, int nlb){
+void op4(int mb[50][50], int nlb, int ncb){
     //Preencher a matriz B com valores aleatórios
-    
+
     int i,j;
-    for(i=0; i<ncb; i++){
-        for(j=0; j<nlb; j++){
-          mb[i][j] = rand()%101;
+    printf("\n");
+    srand(time(NULL));
+    printf("ncb, nlb = %d, %d\n", nlb, ncb);
+    for(i=0; i<nlb; i++){
+        for(j=0; j<ncb; j++){
+            mb[i][j] = rand()%100;
         }
-      }
+    }
+    printf("\n");
 }
+void op10(int ma[50][50], int nla, int nca){
+    //Imprimir matriz A
+    int i,j;
+    printf("\n");
+    for(i=0;i<nla;i++){
+        for(j=0;j<nca;j++){
+            printf("%d ",ma[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+void op11(int mb[50][50], int nlb, int ncb){
+    //Imprimir matriz B
+    int i,j;
+    printf("\n");
+    for(i=0;i<nlb;i++){
+        for(j=0;j<ncb;j++){
+            printf("%d ",mb[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
 int main(void)
 {
     int op=0;
-    int nla,nca,nlb,ncb;
-    int mc[20][20]={0};
-        while(op!=7){
-            menu();
-            scanf("%d",&op);
-            switch (op)
-            {
-            case 1:
-                printf("==Tamanho da matriz A==\n");
-                printf("Numero de linhas: ");
-                scanf("%d",&nla);
-                printf("Numero de colunas: ");
-                scanf("%d",&nca);
-                break;
-    
-            case 2:
-                printf("==Tamanho da matriz B==\n");
-                printf("Numero de linhas: ");
-                scanf("%d",&nlb);
-                printf("Numero de colunas: ");
-                scanf("%d",&ncb);
-                break;
-    
-            case 3:
-                
-                break;
-            case 4:
-                
-                break;
-            case 5:
-                
-                break;
-            case 6:
-            
-                break;
-            case 7:
-            
-                break;
-            case 8:
-            
-                break;
-            case 9:
-            
-                break;
-            case 10:
-            
-                break;
-            case 11:
-            
-                break;
-            case 12:
-            
-                break;
-            case 13:
-            
-                break;
-            case 14:
-            
-                break;
-            case 15:
-            
-                break;
-                
-            default:
+    int nla=0,nca=0,nlb=0,ncb=0;
+    //int mc[20][20]={0};
+    int ma[50][50];
+    int mb[50][50];
+    int ap=0,bp=0;
+    while(op!=16){
+        menu();
+        scanf("%d",&op);
+        switch (op)
+        {
+        case 1:
+            printf("\n");
+            printf("==Tamanho da matriz A==\n");
+            printf("Numero de linhas: ");
+            scanf("%d",&nla);
+            printf("Numero de colunas: ");
+            scanf("%d",&nca);
+            printf("\n");
+            break;
+
+        case 2:
+            printf("\n");
+            printf("==Tamanho da matriz B==\n");
+            printf("Numero de linhas: ");
+            scanf("%d",&nlb);
+            printf("Numero de colunas: ");
+            scanf("%d",&ncb);
+            printf("\n");
+            break;
+
+        case 3:
+            if(nca==0 && nla==0){
+                printf("Matriz sem tamanho definido. Utilize a opcao 1.\n");
+            }else{
+            op3(ma,nla,nca);
+            ap=1;
+            }
+            break;
+        case 4:
+           if(ncb==0 && nlb==0){
+                printf("Matriz sem tamanho definido. Utilize a opcao 2.\n");
+            }else{
+            op4(mb,nlb,ncb);
+            bp=1;
+           }
+            break;
+        case 5:
+
+            break;
+        case 6:
+
+            break;
+        case 7:
+
+            break;
+        case 8:
+
+            break;
+        case 9:
+
+            break;
+        case 10:
+            if(ap==0){
+                printf("Matriz nao foi preenchida. Utilize a opcao 3.\n");
+            }else{
+            op10(ma,nla,nca);
+            }
+            break;
+        case 11:
+            if(bp==0){
+                printf("Matriz nao foi preenchida. Utilize a opcao 4.\n");
+            }else{
+            op11(mb,nlb,ncb);
+            }
+            break;
+        case 12:
+
+            break;
+        case 13:
+
+            break;
+        case 14:
+
+            break;
+        case 15:
+
+            break;
+        case 16:
+            printf("SAIR\n");
+
+            break;
+
+        default:
             printf("opcao invalida,tente novamente\n");
-            }
-            }
-    
+        }
+    }
+
     return 0;
 }
