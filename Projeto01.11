@@ -43,7 +43,7 @@ void op4(int mb[50][50], int nlb, int ncb){
     int i,j;
     printf("\n");
     srand(time(NULL));
-    printf("ncb, nlb = %d, %d\n", nlb, ncb);
+
     for(i=0; i<nlb; i++){
         for(j=0; j<ncb; j++){
             mb[i][j] = rand()%100;
@@ -51,6 +51,65 @@ void op4(int mb[50][50], int nlb, int ncb){
     }
     printf("\n");
 }
+void op5(int ma[50][50], int nla, int nca){
+    //Atribuir valor para um elemento da matriz A
+    int pl,pc,nv;
+    printf("\n");
+    printf("Digite a linha da posicao a ser modificada: ");
+    scanf("%d",&pl);
+    printf("Digite a coluna da posicao a ser modificada: ");
+    scanf("%d",&pc);
+    printf("Valor anterior: %d",ma[pc-1][pl-1]);
+    printf("\n");
+    printf("Digite o novo valor de A[%d][%d]: ",pl,pc);
+    scanf("%d",&nv);
+    ma[pl-1][pc-1]=nv;
+    printf("Novo valor de A[%d][%d]: %d",pl,pc,ma[pc-1][pl-1]);
+    printf("\n");
+
+}
+void op6(int mb[50][50], int nlb, int ncb){
+    //Atribuir valor para um elemento da matriz A
+    int pl,pc,nv;
+    printf("\n");
+    printf("Digite a linha da posicao a ser modificada: ");
+    scanf("%d",&pl);
+    printf("Digite a coluna da posicao a ser modificada: ");
+    scanf("%d",&pc);
+    printf("Valor anterior: %d",mb[pc-1][pl-1]);
+    printf("\n");
+    printf("Digite o novo valor de B[%d][%d]: ",pl,pc);
+    scanf("%d",&nv);
+    mb[pl-1][pc-1]=nv;
+    printf("Novo valor de B[%d][%d]: %d",pl,pc,mb[pc-1][pl-1]);
+    printf("\n");
+
+}
+void op7(int ma[50][50], int nla, int nca, int mb[50][50], int nlb, int ncb){
+    //A+B
+    //é preciso que todas elas tenham o mesmo número de linhas e de colunas
+
+    if(nla==nlb && nca==ncb){
+        //soma
+        int mx[nla][nca];
+        int i,j;
+        for(i=0;i<nla;i++){
+            for(j=0;j<nca;j++){
+                mx[i][j]=ma[i][j]+mb[i][j];
+            }
+        }
+        printf("Soma das matrizes A e B:\n");
+        for(i=0;i<nla;i++){
+            for(j=0;j<nca;j++){
+                printf("%d ",mx[i][j]);
+            }
+            printf("\n");
+        }
+    }else{
+        printf("Nao e possivel somar matrizes com tamanhos diferentes.");
+    }
+}
+
 void op10(int ma[50][50], int nla, int nca){
     //Imprimir matriz A
     int i,j;
@@ -113,26 +172,45 @@ int main(void)
             if(nca==0 && nla==0){
                 printf("Matriz sem tamanho definido. Utilize a opcao 1.\n");
             }else{
-            op3(ma,nla,nca);
-            ap=1;
+                op3(ma,nla,nca);
+                ap=1;
             }
             break;
         case 4:
-           if(ncb==0 && nlb==0){
+            if(ncb==0 && nlb==0){
                 printf("Matriz sem tamanho definido. Utilize a opcao 2.\n");
             }else{
-            op4(mb,nlb,ncb);
-            bp=1;
-           }
+                op4(mb,nlb,ncb);
+                bp=1;
+            }
             break;
         case 5:
+            if(ap==0){
+                printf("Matriz nao foi preenchida. Utilize a opcao 3.\n");
+            }else{
+                op5(ma,nla,nca);
+            }
 
             break;
         case 6:
+            if(bp==0){
+                printf("Matriz nao foi preenchida. Utilize a opcao 4.\n");
+            }else{
+                op6(mb,nlb,ncb);
+            }
+
 
             break;
         case 7:
-
+            if(ap!=0){
+                if(bp!=0){
+                   op7(ma,nla,nca,mb,nlb,ncb);
+                }else{
+                    printf("Matriz B não preenchida. Utilize a opcao 4.");
+                }
+            }else{
+                printf("Matriz A não preenchida. Utilize a opcao 3.");
+            }
             break;
         case 8:
 
@@ -144,14 +222,14 @@ int main(void)
             if(ap==0){
                 printf("Matriz nao foi preenchida. Utilize a opcao 3.\n");
             }else{
-            op10(ma,nla,nca);
+                op10(ma,nla,nca);
             }
             break;
         case 11:
             if(bp==0){
                 printf("Matriz nao foi preenchida. Utilize a opcao 4.\n");
             }else{
-            op11(mb,nlb,ncb);
+                op11(mb,nlb,ncb);
             }
             break;
         case 12:
@@ -178,3 +256,4 @@ int main(void)
 
     return 0;
 }
+
