@@ -109,6 +109,30 @@ void op7(int ma[50][50], int nla, int nca, int mb[50][50], int nlb, int ncb){
         printf("Nao e possivel somar matrizes com tamanhos diferentes.");
     }
 }
+void op8(int ma[50][50], int nla, int nca, int mb[50][50], int nlb, int ncb){
+    //A-B
+    //é preciso que todas elas tenham o mesmo número de linhas e de colunas
+
+    if(nla==nlb && nca==ncb){
+        //subtração
+        int mx[nla][nca];
+        int i,j;
+        for(i=0;i<nla;i++){
+            for(j=0;j<nca;j++){
+                mx[i][j]=ma[i][j]-mb[i][j];
+            }
+        }
+        printf("Subtracao das matrizes A e B:\n");
+        for(i=0;i<nla;i++){
+            for(j=0;j<nca;j++){
+                printf("%d ",mx[i][j]);
+            }
+            printf("\n");
+        }
+    }else{
+        printf("Nao e possivel subrair matrizes com tamanhos diferentes.");
+    }
+}
 
 void op10(int ma[50][50], int nla, int nca){
     //Imprimir matriz A
@@ -213,6 +237,15 @@ int main(void)
             }
             break;
         case 8:
+            if(ap!=0){
+                if(bp!=0){
+                   op8(ma,nla,nca,mb,nlb,ncb);
+                }else{
+                    printf("Matriz B não preenchida. Utilize a opcao 4.");
+                }
+            }else{
+                printf("Matriz A não preenchida. Utilize a opcao 3.");
+            }
 
             break;
         case 9:
@@ -256,4 +289,3 @@ int main(void)
 
     return 0;
 }
-
